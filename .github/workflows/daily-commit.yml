@@ -2,8 +2,13 @@ name: Daily commit
 
 on:
   schedule:
-    # Every day at 06:17 UTC. GitHub cron uses UTC.
+    # GitHub can delay or drop scheduled runs during high load, so try three
+    # times a day. The script is idempotent: the first run that commits wins,
+    # later runs see today's date already logged and exit without a commit.
+    # GitHub cron uses UTC.
     - cron: "17 6 * * *"
+    - cron: "17 12 * * *"
+    - cron: "17 18 * * *"
   workflow_dispatch:
 
 permissions:

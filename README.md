@@ -6,7 +6,7 @@ Makes one small commit every day, so the contribution graph stays green.
 
 - `.github/workflows/daily-commit.yml` runs every day at 06:17, 12:17, and 18:17 UTC, plus on manual dispatch. The extra slots are a fallback because GitHub can delay or drop scheduled runs under load.
 - `scripts/daily_commit.py` appends today's date to `activity.log` and commits it as `log: YYYY-MM-DD`. It skips the commit when today is already logged, so extra runs are harmless.
-- The workflow pushes the commit with the built-in `GITHUB_TOKEN`.
+- The workflow pushes the commit with the built-in `GITHUB_TOKEN`, but authors it with your GitHub noreply email so it counts toward your contribution graph.
 
 ## Setup
 

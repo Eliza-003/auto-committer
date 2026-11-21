@@ -34,7 +34,9 @@ jobs:
 
       - name: Commit today's entry
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Author as the repo owner, not the bot, so commits count toward
+          # the contribution graph. Pushing with GITHUB_TOKEN is fine.
+          git config user.name "Eliza-003"
+          git config user.email "274258086+Eliza-003@users.noreply.github.com"
           python scripts/daily_commit.py
           git push
